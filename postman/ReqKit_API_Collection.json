@@ -1,0 +1,664 @@
+{
+  "info": {
+    "name": "ReqKit API Backend Suite",
+    "description": "Complete API Collection for ReqKit Backend including Auth, Workspaces, Collections, Sub-collection Folders, Live Runner Engine, and AI-Agent Exports.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "workspaceId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "collectionId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "folderId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "requestId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Check Server Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "health"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Authentication Module",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ajeet Kumar\",\n  \"email\": \"ajeet@example.com\",\n  \"password\": \"SecretPassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"ajeet@example.com\",\n  \"password\": \"SecretPassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Tokens",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/refresh",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "refresh"]
+            }
+          }
+        },
+        {
+          "name": "Get Current User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "me"]
+            }
+          }
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Workspaces Module",
+      "item": [
+        {
+          "name": "Create Workspace",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Frontend Engineering Workspace\",\n  \"description\": \"Workspace for React & Vite API endpoints\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces"]
+            }
+          }
+        },
+        {
+          "name": "Get User Workspaces",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces"]
+            }
+          }
+        },
+        {
+          "name": "Get Workspace Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces/{{workspaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces", "{{workspaceId}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Workspace",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Workspace Title\",\n  \"description\": \"Updated description\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces/{{workspaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces", "{{workspaceId}}"]
+            }
+          }
+        },
+        {
+          "name": "Add Workspace Team Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"teammate@example.com\",\n  \"role\": \"editor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces/{{workspaceId}}/members",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces", "{{workspaceId}}", "members"]
+            }
+          }
+        },
+        {
+          "name": "Update Member Role",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"viewer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces/{{workspaceId}}/members/MEMBER_USER_ID",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces", "{{workspaceId}}", "members", "MEMBER_USER_ID"]
+            }
+          }
+        },
+        {
+          "name": "Delete Workspace",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/workspaces/{{workspaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "workspaces", "{{workspaceId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Collections & Folders Module",
+      "item": [
+        {
+          "name": "Create Collection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"workspaceId\": \"{{workspaceId}}\",\n  \"name\": \"E-Commerce Microservice\",\n  \"description\": \"API endpoints for products, orders, and payments\",\n  \"variables\": [\n    { \"key\": \"baseUrl\", \"value\": \"https://api.store.com\", \"enabled\": true }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections"]
+            }
+          }
+        },
+        {
+          "name": "List Workspace Collections",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections/workspace/{{workspaceId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections", "workspace", "{{workspaceId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Collection Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections/{{collectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections", "{{collectionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Sub-collection Folder",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"User Authentication\",\n  \"description\": \"Endpoints for auth flow\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections/{{collectionId}}/folders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections", "{{collectionId}}", "folders"]
+            }
+          }
+        },
+        {
+          "name": "Update Sub-collection Folder",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Auth Folder Name\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections/{{collectionId}}/folders/{{folderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections", "{{collectionId}}", "folders", "{{folderId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Sub-collection Folder",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections/{{collectionId}}/folders/{{folderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections", "{{collectionId}}", "folders", "{{folderId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Collection",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/collections/{{collectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "collections", "{{collectionId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Requests & Live Runner Module",
+      "item": [
+        {
+          "name": "Create Request Endpoint",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collectionId\": \"{{collectionId}}\",\n  \"folderId\": \"{{folderId}}\",\n  \"name\": \"Login Endpoint\",\n  \"description\": \"Authenticates user and generates JWT\",\n  \"method\": \"POST\",\n  \"url\": \"https://reqres.in/api/login\",\n  \"headers\": [\n    { \"key\": \"Content-Type\", \"value\": \"application/json\", \"enabled\": true }\n  ],\n  \"body\": {\n    \"type\": \"json\",\n    \"rawContent\": \"{\\n  \\\"email\\\": \\\"eve.holt@reqres.in\\\",\\n  \\\"password\\\": \\\"cityslicka\\\"\\n}\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests"]
+            }
+          }
+        },
+        {
+          "name": "Proxy Execute Live HTTP Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"POST\",\n  \"url\": \"https://reqres.in/api/login\",\n  \"headers\": [\n    { \"key\": \"Content-Type\", \"value\": \"application/json\", \"enabled\": true }\n  ],\n  \"body\": {\n    \"type\": \"json\",\n    \"rawContent\": \"{\\n  \\\"email\\\": \\\"eve.holt@reqres.in\\\",\\n  \\\"password\\\": \\\"cityslicka\\\"\\n}\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests/execute",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests", "execute"]
+            }
+          }
+        },
+        {
+          "name": "Get Collection Requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests/collection/{{collectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests", "collection", "{{collectionId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Request Details with Saved Examples",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests/{{requestId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests", "{{requestId}}"]
+            }
+          }
+        },
+        {
+          "name": "Save Response Example",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"200 OK - Login Token Received\",\n  \"type\": \"success\",\n  \"statusCode\": 200,\n  \"statusText\": \"OK\",\n  \"body\": {\n    \"token\": \"QpwL5tke4Pnpja7X4\"\n  },\n  \"responseTimeMs\": 145,\n  \"sizeBytes\": 32,\n  \"isDefault\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests/{{requestId}}/examples",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests", "{{requestId}}", "examples"]
+            }
+          }
+        },
+        {
+          "name": "Get Request Examples",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests/{{requestId}}/examples",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests", "{{requestId}}", "examples"]
+            }
+          }
+        },
+        {
+          "name": "Delete Request Endpoint",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/requests/{{requestId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "requests", "{{requestId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. AI-Agent Export Engine Module",
+      "item": [
+        {
+          "name": "Export Single Request",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/export/request/{{requestId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "export", "request", "{{requestId}}"]
+            }
+          }
+        },
+        {
+          "name": "Export Sub-collection Folder",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/export/collection/{{collectionId}}/folder/{{folderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "export", "collection", "{{collectionId}}", "folder", "{{folderId}}"]
+            }
+          }
+        },
+        {
+          "name": "Export Complete Collection",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/export/collection/{{collectionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "export", "collection", "{{collectionId}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
