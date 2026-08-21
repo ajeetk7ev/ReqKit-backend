@@ -7,6 +7,7 @@ import { ApiResponse } from './utils/ApiResponse.js';
 import authRoutes from './routes/auth.routes.js';
 import workspaceRoutes from './routes/workspace.routes.js';
 import collectionRoutes from './routes/collection.routes.js';
+import requestRoutes from './routes/request.routes.js';
 import { notFoundHandler } from './middleware/notFound.middleware.js';
 import { errorHandler } from './middleware/error.middleware.js';
 
@@ -40,6 +41,7 @@ app.get('/api/v1/health', (req, res) => {
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/workspaces', workspaceRoutes);
 app.use('/api/v1/collections', collectionRoutes);
+app.use('/api/v1/requests', requestRoutes);
 
 // Catch 404 routes
 app.use(notFoundHandler);
