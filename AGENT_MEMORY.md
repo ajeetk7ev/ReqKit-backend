@@ -93,7 +93,7 @@ export class AuthController {
 - [ ] `[WS-07]` Remove Workspace Member (`DELETE /api/v1/workspaces/:id/members/:userId`)
 
 ### Phase 3: Collections & Folders
-- [ ] `[COLL-01]` Collection Schema (`src/models/collection.model.js`)
+- [x] `[COLL-01]` Collection Schema (`src/models/collection.model.js`)
 - [ ] `[COLL-02]` Create Collection (`POST /api/v1/collections`)
 - [ ] `[COLL-03]` List Collections in Workspace (`GET /api/v1/collections/workspace/:workspaceId`)
 - [ ] `[COLL-04]` Create Folder/Sub-collection (`POST /api/v1/collections/:id/folders`)
