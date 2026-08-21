@@ -85,12 +85,12 @@ export class AuthController {
 
 ### Phase 2: Workspaces & Collaboration (HTTP REST)
 - [x] `[WS-01]` Workspace Schema (`src/models/workspace.model.js`)
-- [ ] `[WS-02]` Create Workspace (`POST /api/v1/workspaces`)
-- [ ] `[WS-03]` Get User Workspaces (`GET /api/v1/workspaces`)
-- [ ] `[WS-04]` Get Workspace Details (`GET /api/v1/workspaces/:id`)
-- [ ] `[WS-05]` Update Workspace (`PUT /api/v1/workspaces/:id`)
-- [ ] `[WS-06]` Add/Manage Workspace Members (`POST /api/v1/workspaces/:id/members`)
-- [ ] `[WS-07]` Remove Workspace Member (`DELETE /api/v1/workspaces/:id/members/:userId`)
+- [x] `[WS-02]` Create Workspace (`POST /api/v1/workspaces`)
+- [x] `[WS-03]` Get User Workspaces (`GET /api/v1/workspaces`) - Auto-initializes personal workspace if empty
+- [x] `[WS-04]` Get Workspace Details (`GET /api/v1/workspaces/:id`) with role calculations
+- [x] `[WS-05]` Update Workspace (`PUT /api/v1/workspaces/:id`)
+- [x] `[WS-06]` Add/Manage Workspace Members (`POST /api/v1/workspaces/:id/members`, `PATCH /api/v1/workspaces/:id/members/:userId`)
+- [x] `[WS-07]` Remove Workspace Member (`DELETE /api/v1/workspaces/:id/members/:userId`)
 
 ### Phase 3: Collections & Folders
 - [x] `[COLL-01]` Collection Schema (`src/models/collection.model.js`)

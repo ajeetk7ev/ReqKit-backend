@@ -5,6 +5,7 @@ import passport from 'passport';
 import configurePassport from './config/passport.js';
 import { ApiResponse } from './utils/ApiResponse.js';
 import authRoutes from './routes/auth.routes.js';
+import workspaceRoutes from './routes/workspace.routes.js';
 import { notFoundHandler } from './middleware/notFound.middleware.js';
 import { errorHandler } from './middleware/error.middleware.js';
 
@@ -34,8 +35,9 @@ app.get('/api/v1/health', (req, res) => {
   );
 });
 
-// Authentication API Routes
+// API Routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/workspaces', workspaceRoutes);
 
 // Catch 404 routes
 app.use(notFoundHandler);
