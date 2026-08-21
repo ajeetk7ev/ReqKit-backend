@@ -78,10 +78,10 @@ export class AuthController {
 - [x] `[CORE-02]` Centralized Error Middleware (`src/middleware/error.middleware.js`) and 404 Handler (`src/middleware/notFound.middleware.js`)
 - [x] `[CORE-03]` Express App Setup (`src/app.js`), MongoDB Connection (`src/config/db.js`), and Server (`src/server.js`)
 - [x] `[AUTH-01]` User Mongoose Schema (`src/models/user.model.js`)
-- [ ] `[AUTH-02]` User Repository (`src/repositories/user.repository.js`)
-- [ ] `[AUTH-03]` Auth Service (`src/services/auth.service.js`)
-- [ ] `[AUTH-04]` Auth Controller (`src/controllers/auth.controller.js`)
-- [ ] `[AUTH-05]` Auth Routes (`src/routes/auth.routes.js`) & JWT Middleware (`src/middleware/auth.middleware.js`)
+- [x] `[AUTH-02]` User Repository (`src/repositories/user.repository.js`)
+- [x] `[AUTH-03]` Auth Service (`src/services/auth.service.js`) with PasswordUtil, JwtUtil, and AuthValidation
+- [x] `[AUTH-04]` Auth Controller (`src/controllers/auth.controller.js`) with HTTP-only Cookies and Tokens
+- [x] `[AUTH-05]` Auth Routes (`src/routes/auth.routes.js`), Passport Google OAuth, and Auth Guard Middleware (`src/middleware/auth.middleware.js`)
 
 ### Phase 2: Workspaces & Collaboration (HTTP REST)
 - [x] `[WS-01]` Workspace Schema (`src/models/workspace.model.js`)
