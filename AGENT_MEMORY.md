@@ -103,7 +103,7 @@ export class AuthController {
 - [x] `[REQ-01]` Request Schema (`src/models/request.model.js`)
 - [ ] `[REQ-02]` Create / Update / Delete Request Endpoints (`/api/v1/requests`)
 - [ ] `[REQ-03]` Proxy HTTP Request Executor (`POST /api/v1/requests/execute`) - Executes external HTTP requests safely via Axios
-- [ ] `[REQ-04]` Save Response Example (`POST /api/v1/requests/:id/examples`) - Save Success (2xx) or Error (4xx/5xx) snapshots for AI exports
+- [x] `[REQ-04]` ResponseExample Schema (`src/models/responseExample.model.js`) - Save Success (2xx) or Error (4xx/5xx) snapshots for AI exports
 
 ### Phase 5: AI-Agent Export Engine
 - [ ] `[EXP-01]` Export Single Request (`GET /api/v1/export/request/:requestId`)
