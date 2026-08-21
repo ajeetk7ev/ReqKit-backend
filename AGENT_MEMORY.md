@@ -106,10 +106,10 @@ export class AuthController {
 - [x] `[REQ-04]` ResponseExample Persistence (`POST /api/v1/requests/:id/examples`) - Save Success (2xx) or Error (4xx/5xx) snapshots for AI exports
 
 ### Phase 5: AI-Agent Export Engine
-- [ ] `[EXP-01]` Export Single Request (`GET /api/v1/export/request/:requestId`)
-- [ ] `[EXP-02]` Export Sub-collection / Folder (`GET /api/v1/export/folder/:folderId`)
-- [ ] `[EXP-03]` Export Complete Collection (`GET /api/v1/export/collection/:collectionId`)
-- [ ] `[EXP-04]` TypeScript Type Generator Service (`src/services/typeGenerator.service.js`)
+- [x] `[EXP-01]` Export Single Request (`GET /api/v1/export/request/:requestId`) into ReqKit AI JSON, Markdown Context Prompt, and TypeScript interfaces
+- [x] `[EXP-02]` Export Sub-collection / Folder (`GET /api/v1/export/collection/:collectionId/folder/:folderId`)
+- [x] `[EXP-03]` Export Complete Collection (`GET /api/v1/export/collection/:collectionId`)
+- [x] `[EXP-04]` TypeScript Type Generator Service (`src/services/typeGenerator.service.js`) with dynamic JSON-to-TypeScript type inferencing
 
 ---
 
