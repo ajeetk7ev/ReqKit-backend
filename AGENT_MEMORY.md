@@ -77,7 +77,7 @@ export class AuthController {
 - [x] `[CORE-01]` Setup Winston Logger (`src/utils/logger.js`), ApiError (`src/utils/ApiError.js`), ApiResponse (`src/utils/ApiResponse.js`), and AsyncHandler (`src/utils/asyncHandler.js`)
 - [x] `[CORE-02]` Centralized Error Middleware (`src/middleware/error.middleware.js`) and 404 Handler (`src/middleware/notFound.middleware.js`)
 - [x] `[CORE-03]` Express App Setup (`src/app.js`), MongoDB Connection (`src/config/db.js`), and Server (`src/server.js`)
-- [ ] `[AUTH-01]` User Mongoose Schema (`src/models/user.model.js`)
+- [x] `[AUTH-01]` User Mongoose Schema (`src/models/user.model.js`)
 - [ ] `[AUTH-02]` User Repository (`src/repositories/user.repository.js`)
 - [ ] `[AUTH-03]` Auth Service (`src/services/auth.service.js`)
 - [ ] `[AUTH-04]` Auth Controller (`src/controllers/auth.controller.js`)
