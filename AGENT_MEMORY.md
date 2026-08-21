@@ -94,10 +94,10 @@ export class AuthController {
 
 ### Phase 3: Collections & Folders
 - [x] `[COLL-01]` Collection Schema (`src/models/collection.model.js`)
-- [ ] `[COLL-02]` Create Collection (`POST /api/v1/collections`)
-- [ ] `[COLL-03]` List Collections in Workspace (`GET /api/v1/collections/workspace/:workspaceId`)
-- [ ] `[COLL-04]` Create Folder/Sub-collection (`POST /api/v1/collections/:id/folders`)
-- [ ] `[COLL-05]` Update / Delete Collection (`PUT/DELETE /api/v1/collections/:id`)
+- [x] `[COLL-02]` Create Collection (`POST /api/v1/collections`)
+- [x] `[COLL-03]` List Collections in Workspace (`GET /api/v1/collections/workspace/:workspaceId`)
+- [x] `[COLL-04]` Create/Update/Delete Sub-collection Folder (`POST/PUT/DELETE /api/v1/collections/:id/folders`)
+- [x] `[COLL-05]` Update / Delete Collection (`PUT/DELETE /api/v1/collections/:id`)
 
 ### Phase 4: Requests & Live Runner
 - [x] `[REQ-01]` Request Schema (`src/models/request.model.js`)
