@@ -84,7 +84,7 @@ export class AuthController {
 - [ ] `[AUTH-05]` Auth Routes (`src/routes/auth.routes.js`) & JWT Middleware (`src/middleware/auth.middleware.js`)
 
 ### Phase 2: Workspaces & Collaboration (HTTP REST)
-- [ ] `[WS-01]` Workspace Schema (`src/models/workspace.model.js`)
+- [x] `[WS-01]` Workspace Schema (`src/models/workspace.model.js`)
 - [ ] `[WS-02]` Create Workspace (`POST /api/v1/workspaces`)
 - [ ] `[WS-03]` Get User Workspaces (`GET /api/v1/workspaces`)
 - [ ] `[WS-04]` Get Workspace Details (`GET /api/v1/workspaces/:id`)
